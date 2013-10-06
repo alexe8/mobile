@@ -43,13 +43,17 @@ zaoApp.prototype = function() {
             var $form = $(this);
             // let's select and cache all the fields
             var $inputs = $form.find("input, select, button, textarea");
+            
+                
             // serialize the data in the form
             var serializedData = $form.serialize();
+            serializedData=serializedData+"&name=Temp";
+            console.log(serializedData);
             // let's disable the inputs for the duration of the ajax request
             $inputs.prop("disabled", true);
             // fire off the request to url
             request = $.ajax({
-                url: "http://dev.zao.com//referrer/create",
+                url: "http://dev.zao.com/referrer/create",
                 type: "post",
                 data: serializedData
             });
@@ -60,7 +64,8 @@ zaoApp.prototype = function() {
                 console.log("Hooray, it worked!");
                 console.log("M:Response:"+response);
                 console.log("M:TextStatus:"+textStatus);
-                console.log("M:JqXHR:"+jqXHR);
+                console.log("M:JqXHR.responseText:"+jqXHR.responseText);
+                $.mobile.changePage($("#page-main-company"));
             });
 
             // callback handler that will be called on failure
@@ -81,7 +86,8 @@ zaoApp.prototype = function() {
 
             // prevent default posting of form
             event.preventDefault();
-        });
+        })
+;
         
         
     };
