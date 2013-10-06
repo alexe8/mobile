@@ -5,7 +5,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // PhoneGap is ready
 function onDeviceReady() {
     
-	   console.log("T2");
+	
 }
 
 var zaoApp = function(){}
@@ -19,10 +19,12 @@ zaoApp.prototype = function() {
     _login = false,
     
     run = function(){
-        
+      
         var that = this,
-        
-        $('#page-Log-In').on('pagebeforeshow',$.proxy(_initHome,that));
+        $seatPicker=$('#seatPicker');
+        $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
+        $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
+        $('#home').on('pagebeforecreate',$.proxy(_initHome,that));
         $('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
         
         $('#myTripsListView').on('click', 'li', function () {
