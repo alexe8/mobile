@@ -27,7 +27,7 @@
                     <img src="img/zao-logo.png">
                     <h3>Refer a friend</h3>
                 </div>
-                <form id="logIn" action="" method="post">
+                <form id="logInForm" action="" method="post">
                     <input type="hidden" name="formName" value="form-you">
                     <input type="hidden" name="gTQString" value="">
                     <input type="hidden" name="gotoLocation" value="/">
@@ -37,8 +37,8 @@
 
                     <label for="password" class="ui-hidden-accessible">Password:</label>
                     <input type="password" name="j_password" id="password" value="" placeholder="Password"/>
-
-                    <input type="submit" value="LOG IN" data-theme="e">
+                    <input type="text" name="name" id="name" value="reg"/>
+                    <input type="submit" value="LOG IN" id="login" data-theme="e">
                   <!--<a href="#page-main-company" data-transition="slide" inline="true" data-role="button" data-theme="e">Test to main</a>-->
                     <input type="submit" value="Yammer" data-theme="b">
                 </form>
