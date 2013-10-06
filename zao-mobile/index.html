@@ -16,56 +16,115 @@
         <script src="scripts/location.js" type="text/javascript"></script>
     </head>
     <body>
-        
-               <!--Log In-->
-        <div id="page-Log-In" data-role="page" >
-            
-            <div>
-                <img src="img/zao-logo.png" >
-            </div>
+
+        <!--Log In-->
+        <div id="page-Log-In" data-role="page" class="ui-loader ui-corner-all ui-body-c ">
+
             <!--Content-->
-            <div data-role="content">
-                <form id="logIn" action="" method="post">
-               
-                    
-	                    <label for="username" class="ui-hidden-accessible">Email:</label>
-	                    <input type="email" name="Email" id="username" value="" placeholder="Email"/>
-                        
-	                    <label for="username" class="ui-hidden-accessible">Password:</label>
-	                    <input type="password" name="Password" id="password" value="" placeholder="Password"/>
-                            
-	    
-	                        <input type="submit" value="LOG IN"> 
-                </form>
-                
-            </div>
-                <div class="nav">
-                    <a href="#page-create-account" data-transition="slide" >CREATE ACCOUNT</a>
-                   
+            <div data-role="content" class="">
+                <div class="ui-footer">
+                    <img src="img/zao-logo.png">
+                    <h3>Refer a friend</h3>
                 </div>
-         </div>
-        
-         <!--Create Acount-->
+                <form id="logIn" action="https://www.zao.com/referrer/create" method="post">
+                    <input type="hidden" name="formName" value="form-you">
+                    <input type="hidden" name="gTQString" value="">
+                    <input type="hidden" name="gotoLocation" value="/">
+                    
+                    <label for="username" class="ui-hidden-accessible">Email:</label>
+                    <input type="email" name="j_username" id="email" value="" placeholder="Email"/>
+
+                    <label for="password" class="ui-hidden-accessible">Password:</label>
+                    <input type="password" name="j_password" id="password" value="" placeholder="Password"/>
+
+                    <input type="submit" value="LOG IN" data-theme="e">
+                    <input type="submit" value="Yammer" data-theme="b">
+                </form>
+                <div class="div-low">
+                    <h2 class="ui-footer">New user?</h2>
+                    <a href="#page-create-account" data-transition="slide" inline="true" data-role="button" data-theme="e">CREATE ACCOUNT</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Create Acount-->
         <div id="page-create-account" data-role="page" data-add-back-btn="true">
 
             <!--Header-->
             <div data-role="header" data-position="fixed">
-                <h1>Login</h1>
+                <h1>Create Account</h1>
             </div>
 
             <!--Content-->
-            <div data-role="content">
-                        ttt
-            </div>
+            <div data-role="content" class="">
+                <div class="ui-footer">
+                    <img src="img/zao-logo.png">
+                    <h3>Refer a friend</h3>
+                </div>
+                <form id="createAccount" action="\" method="post">
+                    <label for="fullName" class="ui-hidden-accessible">Full Name:</label>
+                    <input type="text" name="fullName" id="fullName" value="" placeholder="Full Name"/>
+                    
+                    <label for="companyEmail" class="ui-hidden-accessible">Email:</label>
+                    <input type="email" name="companyEmail" id="companyEmail" value="" placeholder="Company Email"/>
 
-            <!--Footer-->
-            <div data-role="footer" data-position="fixed"  data-id="oneFooter">
-                <span class="footerText">Built with Icenium&trade;</span>
-            </div>
+                    <label for="password" class="ui-hidden-accessible">Password:</label>
+                    <input type="password" name="Password" id="password" value="" placeholder="Password"/>
 
+                    <input type="submit" value="CREATE ACCOUNT" data-theme="e">  
+                </form>
+                
+            </div>
         </div>
         
- 
+       <!--Authenticate Account-->
+        <div id="page-authenticate-account" data-role="page" data-add-back-btn="false">
+
+            <!--Header-->
+            <div data-role="header" data-position="fixed">
+                <h1>Authenticate Account</h1>
+            </div>
+
+            <!--Content-->
+            <div data-role="content" class="">
+                <div class="ui-footer">
+                    <img src="img/zao-logo.png">
+                    <h3>Refer a friend</h3>
+                </div>
+                <form id="createAccount" action="\" method="post">
+                    <label for="fullName" class="ui-hidden-accessible">Full Name:</label>
+                    <input type="text" name="fullName" id="fullName" value="" placeholder="Full Name"/>
+                    
+                    <label for="companyEmail" class="ui-hidden-accessible">Email:</label>
+                    <input type="email" name="companyEmail" id="companyEmail" value="" placeholder="Company Email"/>
+
+                    <label for="password" class="ui-hidden-accessible">Password:</label>
+                    <input type="password" name="Password" id="password" value="" placeholder="Password"/>
+
+                    <input type="submit" value="CREATE ACCOUNT" data-theme="e">  
+                </form>
+                
+            </div>
+        </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
         <!--Home-->
         <div id="page-home" data-role="page" >
 
@@ -93,7 +152,7 @@
                     </li>
                 </ul>
             </div>
-<
+            <
             <!--Footer-->
             <div data-role="footer" data-position="fixed" data-id="oneFooter">
                 <span class="footerText">Built with Icenium&trade;</span>
@@ -101,9 +160,6 @@
 
         </div>
 
-        
-        
-        
         <!--UI interaction-->
         <div id="page-ui-interaction" data-role="page" data-add-back-btn="true">
 
