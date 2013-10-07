@@ -47,13 +47,12 @@ zaoApp.prototype = function() {
                 
             // serialize the data in the form
             var serializedData = $form.serialize();
-            serializedData=serializedData+"&name=Temp";
             console.log(serializedData);
             // let's disable the inputs for the duration of the ajax request
             $inputs.prop("disabled", true);
             // fire off the request to url
             request = $.ajax({
-                url: "http://dev.zao.com/referrer/create",
+                url: "https://dev.zao.com/user/account-login-ajax",
                 type: "post",
                 data: serializedData
             });
@@ -61,11 +60,11 @@ zaoApp.prototype = function() {
             // callback handler that will be called on success
             request.done(function (response, textStatus, jqXHR){
                 // log a message to the console
-                console.log("Hooray, it worked!");
                 console.log("M:Response:"+response);
                 console.log("M:TextStatus:"+textStatus);
                 console.log("M:JqXHR.responseText:"+jqXHR.responseText);
                 $.mobile.changePage($("#page-main-company"));
+                bringReq("https://dev.zao.com/referrer/my-jobs");
             });
 
             // callback handler that will be called on failure
@@ -86,9 +85,21 @@ zaoApp.prototype = function() {
 
             // prevent default posting of form
             event.preventDefault();
-        })
-;
+        });
         
+        
+    };
+    
+    bringReq= function(url){
+       console.log("Start"); 
+       $.ajax({
+                type: "post",
+                url: url, 
+                data: {},
+                success: function(msg){      
+                        console.log(msg);
+                }
+            });
         
     };
     
