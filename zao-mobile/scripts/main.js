@@ -50,7 +50,7 @@ zaoApp.prototype = function() {
                 var jsonResponse=JSON.parse(jqXHR.responseText);
                 localStorage.conToken=jsonResponse.message;
                 if(localStorage.conToken!=null){
-                    activeSess();
+                    activeSess("page-main-company");
                     //$.mobile.changePage($("#page-main-company"));
                     //bringReq("https://dev.zao.com/mobile/app/jobs",localStorage.conToken);
                     
@@ -86,15 +86,18 @@ zaoApp.prototype = function() {
     
     //Will get which page to go from button or go to home screen by default
     //Will ask from server the content
+    //
     activeSess=function(page){
         console.log("activeSess START");
         if(page===null){
             $.mobile.changePage($("#page-main-company"));
         }
             else{
-             
+             //Will set page to go to and content to bring
             $.mobile.changePage($("#"+page));
-            bringReq("https://dev.zao.com/mobile/app/jobs");
+            //bringReq("https://dev.zao.com/mobile/app/jobs");
+            //Maybe set iframe content    
+            webViewContent("");
         }
     };
     
@@ -108,9 +111,9 @@ zaoApp.prototype = function() {
                 data: localStorage.conToken,
                 success: function(msg){      
                         console.log(msg);
+                    //Return content to or set iframe
                     
-                }
-               
+                }          
             });
             request.done(function (response, textStatus, jqXHR){
                 console.log("conn SUCC");
@@ -122,7 +125,12 @@ zaoApp.prototype = function() {
     };
     
     
-    
+    webViewContent= function(content){
+        console.log("Start of webViewContent");
+        var temp = "";
+        //document.getElementById('iframe_companyMain').src = "data:text/html;charset=utf-8," + escape(temp);
+        //$('#iframe_companyMain').contents().html("<html><body><div> blah </div></body></html>");
+    };    
     
    
     
