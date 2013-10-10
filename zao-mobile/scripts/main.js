@@ -4,7 +4,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // PhoneGap is ready
 function onDeviceReady() {
-     
+   
+    
+    //var object = {value: "value", timestamp: new Date().getTime()}
+    //localStorage.setItem("key", JSON.stringify(object));
     
 	
 }
@@ -13,24 +16,11 @@ var zaoApp = function(){}
 
 zaoApp.prototype = function() {
     
-    
+    var domain="https://dev.zao.com";
     _login = false,
     
     run = function(){
         
-      /*$('#login').click(function ()
-        {   
-            console.log("Start");
-            $.ajax({
-                type: "post",
-                url: "https://www.zao.com//referrer/create", 
-                data: {},
-                success: function(msg){      
-                        console.log(msg);
-                }
-            });
-        });*/
-
         // variable to hold request
         var request;
         // bind to the submit event of our form
@@ -42,29 +32,33 @@ zaoApp.prototype = function() {
             // setup some local variables
             var $form = $(this);
             // let's select and cache all the fields
-            var $inputs = $form.find("input, select, button, textarea");
-            
-                
+            var $inputs = $form.find("input, select, button, textarea");     
             // serialize the data in the form
             var serializedData = $form.serialize();
-            console.log(serializedData);
             // let's disable the inputs for the duration of the ajax request
             $inputs.prop("disabled", true);
             // fire off the request to url
             request = $.ajax({
-                url: "https://dev.zao.com/user/account-login-ajax",
+                url: "https://dev.zao.com/mobile/app/user/login",
                 type: "post",
                 data: serializedData
             });
 
             // callback handler that will be called on success
             request.done(function (response, textStatus, jqXHR){
-                // log a message to the console
-                console.log("M:Response:"+response);
-                console.log("M:TextStatus:"+textStatus);
-                console.log("M:JqXHR.responseText:"+jqXHR.responseText);
-                $.mobile.changePage($("#page-main-company"));
-                bringReq("https://dev.zao.com/referrer/my-jobs");
+                //Get token add save to local storage -parses jqXHR.responseText as JSON object and saves to localstorage
+                var jsonResponse=JSON.parse(jqXHR.responseText);
+                localStorage.conToken=jsonResponse.message;
+                if(localStorage.conToken!=null){
+                    activeSess();
+                    //$.mobile.changePage($("#page-main-company"));
+                    //bringReq("https://dev.zao.com/mobile/app/jobs",localStorage.conToken);
+                    
+                    
+                }
+                    
+                    
+            
             });
 
             // callback handler that will be called on failure
@@ -90,17 +84,41 @@ zaoApp.prototype = function() {
         
     };
     
+    //Will get which page to go from button or go to home screen by default
+    //Will ask from server the content
+    activeSess=function(page){
+        console.log("activeSess START");
+        if(page===null){
+            $.mobile.changePage($("#page-main-company"));
+        }
+            else{
+             
+            $.mobile.changePage($("#"+page));
+            bringReq("https://dev.zao.com/mobile/app/jobs");
+        }
+    };
+    
+    
+    
     bringReq= function(url){
-       console.log("Start"); 
+       console.log("Start with"); 
        $.ajax({
-                type: "post",
+                type: "GET",
                 url: url, 
-                data: {},
+                data: localStorage.conToken,
                 success: function(msg){      
                         console.log(msg);
+                    
                 }
+               
             });
-        
+            request.done(function (response, textStatus, jqXHR){
+                console.log("conn SUCC");
+                    console.log("M:Response:"+response);
+                    /*console.log("M:TextStatus:"+textStatus);
+                    console.log("M:JqXHR.responseText:"+jqXHR.responseText);*/
+                    activeSess();
+            });
     };
     
     

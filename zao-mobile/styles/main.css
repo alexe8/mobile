@@ -128,3 +128,21 @@
     
     margin-top:10%;
 }
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+.Vertical-Center {
+  vertical-align:middle;
+}
+
+
+
+.ui-btn-icon-top .ui-btn-inner .ui-icon, .ui-btn-icon-bottom .ui-btn-inner .ui-icon{
+    margin-top: 12%;
+}
