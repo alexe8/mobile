@@ -28,19 +28,15 @@
                     <h3>Refer a friend</h3>
                 </div>
                 <form id="logInForm" action="" method="post">
-                    <input type="hidden" name="formName" value="form-you">
-                    <input type="hidden" name="gTQString" value="">
-                    <input type="hidden" name="gotoLocation" value="/">
-                    
                     <label for="username" class="ui-hidden-accessible">Email:</label>
                     <input type="email" name="j_username" id="email" value="" placeholder="Email"/>
 
                     <label for="password" class="ui-hidden-accessible">Password:</label>
                     <input type="password" name="j_password" id="password" value="" placeholder="Password"/>
                     
-                    <!--<input type="text" name="name" id="name" value="reg"  class="ui-hidden-accessible"/>-->
+                    <!-- <input type="text" name="name" id="name" value="reg"  class="ui-hidden-accessible"/> -->
                     
-                    <input type="submit" value="LOG IN" id="login" data-theme="e">
+                    <input type="submit" value="LOGIN" id="login" data-theme="e">
                   <!--<a href="#page-main-company" data-transition="slide" inline="true" data-role="button" data-theme="e">Test to main</a>-->
                     <input type="submit" value="Yammer" data-theme="b">
                 </form>
@@ -55,10 +51,10 @@
         </div>
 
         <!--Create Acount-->
-        <div id="page-create-account" data-role="page" data-add-back-btn="true">
+        <div id="page-create-account" data-role="page" data-add-back-btn="true" >
 
             <!--Header-->
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Create Account</h1>
             </div>
 
@@ -118,53 +114,33 @@
         <div id="page-main-company" data-role="page" data-add-back-btn="true">
 
             <!--Header-->
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Company Name</h1>
             </div>
 
             <!--Content-->
             <div data-role="content" class="">
-                <div class="ui-footer">
-                    <img src="img/zao-logo.png">
-                    <h3>Refer a friend</h3>
-                </div>
+                <iframe src=""></iframe>
+                  
                 
                 
             </div>
             
             <div data-role="footer" data-id="myfooter" data-position="fixed">
-	            <div data-role="navbar"  >
-		            <ul>
-            			<li><a href="#page-main-company" data-icon="home"></a></li>
-            			<li><a href="#page-social-networks-company" data-icon="star"></a></li>
-            			<li><a href="#page-my-jobs" data-icon="gear"></a></li>
-                        <li><a href="#page-leaderBoard" data-icon="star"></a></li>
-                        <li><a href="#page-logOff" data-icon="back"></a></li>
-                        <!--<li><a href="#page-social-networks-company">Social Networks</a></li>
-            			<li><a href="#page-my-jobs">My Jobs</a></li>
-                        <li><a href="#page-leaderBoard">LeaderBoard</a></li>
-                        <li><a href="#page-logOff">Log Off</a></li>-->
+	            <div data-role="navbar" data-position="fixed" data-theme="b">
+		            <ul >
+            			<li><a href="#page-main-company" data-role="button" data-icon="home" data-theme="b" class="Vertical-Center"></a></li>
+            			<li><a href="#page-social-networks-company" data-role="button" data-icon="star" data-theme="b"></a></li>
+            			<li><a href="#page-my-jobs" data-role="button" data-icon="gear" data-theme="b"></a></li>
+                        <li><a href="#page-leaderBoard" data-role="button" data-icon="star" data-theme="b"></a></li>
+                        <li><a href="#page-logOff" data-role="button" data-icon="back" data-theme="b"></a></li>
+                        
             		</ul>
             	</div><!-- /navbar -->
             </div><!-- /footer -->
             
             
         </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
         <!--Home-->
         <div id="page-home" data-role="page" >
