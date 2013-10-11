@@ -128,7 +128,7 @@ zaoApp.prototype = function() {
     webViewContent= function(content){
         console.log("Start of webViewContent");
         var temp = "";
-        //document.getElementById('iframe_companyMain').src = "data:text/html;charset=utf-8," + escape(temp);
+        document.getElementById('iframe_companyMain').src = "data:text/html;charset=utf-8," + escape(temp);
         //$('#iframe_companyMain').contents().html("<html><body><div> blah </div></body></html>");
     };    
     
@@ -139,3 +139,9 @@ zaoApp.prototype = function() {
     };
 }();
 
+
+
+
+
+
+ 

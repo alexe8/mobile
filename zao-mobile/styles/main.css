@@ -62,3 +62,62 @@
 .ui-btn-icon-top .ui-btn-inner .ui-icon, .ui-btn-icon-bottom .ui-btn-inner .ui-icon{
     margin-top: 12%;
 }
+
+
+#contentdiv{
+    padding:0px;
+    background-color:Red;
+    width:auto;
+    height:auto;   
+}
+
+
+
+
+/*make sure the viewport is 100% height*/
+html, body {
+    height : 100%;
+}
+
+/*make the page element 100% height*/
+#page-main-company {
+    height : 100%;
+}
+
+/*specify a height for the header so we can line-up the elements, the default is 40px*/
+#page-main-company .ui-header {
+    height : 40px;
+}
+
+/*set the content to be full-width and height except it doesn't overlap the header or footer*/
+#page-main-company .ui-content {
+    position : absolute;
+    top      : 40px;
+    right    : 0;
+    bottom   : 30px;
+    left     : 0;
+}
+
+/*absolutely position the footer to the bottom of the page*/
+#page-main-company .ui-footer {
+    position : absolute;
+    bottom   : 0;
+    left     : 0;
+    width    : 100%;
+    height   : 30px;
+}
+
+
+
+#iframe_companyMain {
+    height: 100%; 
+    width: 100%; 
+    display: block
+}
+
+
+.ui-content{
+    padding:5px;
+    
+    
+}
